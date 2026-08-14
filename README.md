@@ -1,31 +1,58 @@
 # 🚀 CareerForge AI
 
-> **An AI-powered career guidance platform for engineering students.**  
-> Analyze your academic profile, discover career paths, identify skill gaps, and get a personalized learning roadmap — powered by Python, MySQL, Scikit-learn, and Google Gemini.
+<div align="center">
+
+![CareerForge AI](https://img.shields.io/badge/CareerForge-AI%20Career%20Guidance-7c3aed?style=for-the-badge&logo=rocket&logoColor=white)
+
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.35+-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io)
+[![MySQL](https://img.shields.io/badge/MySQL-8.0+-4479A1?style=flat-square&logo=mysql&logoColor=white)](https://mysql.com)
+[![Google Gemini](https://img.shields.io/badge/Google%20Gemini-AI-4285F4?style=flat-square&logo=google&logoColor=white)](https://ai.google.dev)
+[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-ML-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+
+**An AI-powered career guidance platform built for engineering students.**  
+Match your skills to careers, identify skill gaps, get an ML-powered learning roadmap,  
+and chat with a Google Gemini AI mentor — all in one app.
+
+</div>
 
 ---
 
 ## 📋 Table of Contents
 
-- [Project Overview](#project-overview)
-- [Architecture](#architecture)
-- [Technology Stack](#technology-stack)
-- [Folder Structure](#folder-structure)
-- [Database Schema](#database-schema)
-- [Setup Instructions](#setup-instructions)
-- [Features by Phase](#features-by-phase)
-- [How Each File Works](#how-each-file-works)
-- [API Keys](#api-keys)
+- [✨ Features](#-features)
+- [🏗️ Architecture](#️-architecture)
+- [🛠️ Tech Stack](#️-tech-stack)
+- [📁 Folder Structure](#-folder-structure)
+- [🗄️ Database Schema](#️-database-schema)
+- [⚡ Quick Start](#-quick-start)
+- [🔑 Environment Variables](#-environment-variables)
+- [📖 How Each File Works](#-how-each-file-works)
+- [📚 Algorithms Explained](#-algorithms-explained)
+- [🌐 Supported Engineering Branches](#-supported-engineering-branches)
+- [📸 Pages Overview](#-pages-overview)
+- [🤝 Contributing](#-contributing)
 
 ---
 
-## 🎯 Project Overview
+## ✨ Features
 
-CareerForge AI helps engineering students answer three critical questions:
+CareerForge AI is built in **5 progressive phases**, each adding more intelligence:
 
-1. **What career suits me?** → Skill-based career matching using ML
-2. **What am I missing?** → Skill gap analysis with visual charts
-3. **How do I get there?** → Phase-by-phase personalized learning roadmap
+| Phase | Feature | Technology |
+|-------|---------|------------|
+| **Phase 1** | Student profile + skill management (full CRUD) | Streamlit + MySQL |
+| **Phase 2** | Rule-based career matching + skill gap analysis | Jaccard Similarity |
+| **Phase 3** | ML recommendations + personalized roadmap | TF-IDF + Cosine Similarity |
+| **Phase 4** | Conversational AI career mentor with streaming | Google Gemini 2.5 Flash |
+| **Phase 5** | User authentication with secure password hashing | bcrypt + Session State |
+
+### 🎯 What it solves for engineering students:
+- **"What career suits me?"** → AI matches your skills to 35+ engineering career paths
+- **"What am I missing?"** → Visual radar chart showing your skill gap per career
+- **"How do I get there?"** → Phase-by-phase roadmap with free resources + Gantt timeline
+- **"Who do I ask?"** → Gemini AI mentor that knows your full academic profile
 
 ---
 
@@ -35,42 +62,46 @@ CareerForge AI helps engineering students answer three critical questions:
 User (Browser)
      │
      ▼
-┌─────────────────────┐
-│   Streamlit UI      │  app.py + pages/*.py
-│   (Web Frontend)    │
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│   Python Backend    │  database.py + recommendation.py
-│   (Business Logic)  │
-└─────────┬───────────┘
-          │
-     ┌────┴────┐
-     ▼         ▼
-┌─────────┐ ┌──────────────────────┐
-│  MySQL  │ │  Recommendation      │
-│  DB     │ │  Engine              │
-│         │ │  ├─ Jaccard (Phase 2)│
-└─────────┘ │  ├─ TF-IDF (Phase 3) │
-            │  └─ Gemini (Phase 4) │
-            └──────────────────────┘
+┌──────────────────────────────────────┐
+│         Streamlit Web UI             │
+│   app.py + pages/  (8 pages)         │
+│   Premium dark-glass design system   │
+└─────────────────┬────────────────────┘
+                  │
+        ┌─────────┴─────────┐
+        ▼                   ▼
+┌───────────────┐   ┌───────────────────────┐
+│  database.py  │   │   recommendation.py   │
+│  MySQL CRUD   │   │  ├─ Jaccard (Phase 2) │
+│  Connection   │   │  ├─ TF-IDF (Phase 3)  │
+│  Pool + Cache │   │  └─ Roadmap Generator │
+└───────┬───────┘   └───────────────────────┘
+        ▼
+┌───────────────┐   ┌───────────────────────┐
+│  MySQL DB     │   │   Google Gemini API   │
+│  6 Tables     │   │   AI Mentor Chat      │
+│  150+ skills  │   │   (llm_service.py)    │
+│  35+ careers  │   └───────────────────────┘
+└───────────────┘
 ```
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ Tech Stack
 
-| Layer | Technology | Why |
-|-------|-----------|-----|
-| Frontend | Streamlit | Rapid Python-native web UI |
-| Backend | Python 3.11+ | Core language |
-| Database | MySQL | Relational data, SQL skills |
-| Data | Pandas + NumPy | DataFrames, numerical ops |
-| ML | Scikit-learn | TF-IDF, cosine similarity |
-| Visualization | Plotly | Interactive charts |
-| AI | Google Gemini | LLM chatbot |
-| Config | python-dotenv | Secret management |
+| Layer | Technology | Purpose |
+|-------|-----------|---------|
+| **Frontend** | Streamlit 1.35+ | Python-native web UI |
+| **Styling** | Vanilla CSS (injected) | Dark navy theme, glassmorphism |
+| **Backend** | Python 3.11+ | Core application logic |
+| **Database** | MySQL 8.0+ | Relational storage with connection pooling |
+| **Driver** | mysql-connector-python | Direct SQL (Repository Pattern) |
+| **Data** | Pandas + NumPy | DataFrames and numerical computing |
+| **ML** | Scikit-learn | TF-IDF vectorizer + Cosine Similarity |
+| **AI / LLM** | Google Gemini 2.5 Flash | Conversational career mentor |
+| **Charts** | Plotly | Radar charts, bar charts, Gantt timelines |
+| **Auth** | bcrypt | Adaptive password hashing |
+| **Config** | python-dotenv | Secret management via `.env` |
 
 ---
 
@@ -79,25 +110,30 @@ User (Browser)
 ```
 careerforge_ai/
 │
-├── app.py                 # Streamlit entry point, DB init, home page
-├── database.py            # All MySQL operations (CRUD functions)
-├── recommendation.py      # Recommendation algorithms (Jaccard, TF-IDF, roadmap)
+├── app.py                  # 🏠 Main entry point — home dashboard
+├── auth.py                 # 🔐 Authentication (login/signup/session)
+├── database.py             # 🗄️  All MySQL CRUD (Repository Pattern)
+├── recommendation.py       # 🤖 Jaccard, TF-IDF, roadmap generator
+├── llm_service.py          # 💬 Google Gemini API integration
+├── theme.py                # 🎨 Shared CSS design system + sidebar
 │
 ├── pages/
-│   ├── 1_Register.py      # Student registration & profile management
-│   ├── 2_Skills.py        # Skill management (add/remove)
-│   ├── 3_Careers.py       # Career browser with charts
-│   ├── 4_SkillGap.py      # Skill gap analysis & radar chart
-│   ├── 5_Roadmap.py       # ML recommendations + learning roadmap
-│   └── 6_AIMentor.py      # Gemini AI career chatbot
+│   ├── 0_Login.py          # 🔑 Login page
+│   ├── 0_Signup.py         # 📝 New account registration
+│   ├── 1_Register.py       # 👤 Student profile CRUD
+│   ├── 2_Skills.py         # 🧠 Branch-aware skill catalog
+│   ├── 3_Careers.py        # 💼 Career browser + recommendations
+│   ├── 4_SkillGap.py       # 📊 Skill gap radar chart analysis
+│   ├── 5_Roadmap.py        # 🗺️  ML roadmap + Gantt timeline
+│   └── 6_AIMentor.py       # 🤖 Google Gemini AI chatbot
 │
 ├── models/
-│   └── .gitkeep           # Trained ML models stored here (Phase 3)
+│   └── .gitkeep            # ML model storage
 │
-├── .env                   # 🔒 Secret config (NOT committed to git)
-├── .gitignore             # Excludes .env, __pycache__, venv/
-├── requirements.txt       # All Python dependencies
-└── README.md              # This file
+├── .env                    # 🔒 Secrets — NOT committed to Git
+├── .gitignore              # Excludes .env, venv/, __pycache__
+├── requirements.txt        # All Python dependencies
+└── README.md               # This file
 ```
 
 ---
@@ -107,181 +143,235 @@ careerforge_ai/
 ```sql
 careerforge_ai
 │
-├── students           (student_id PK, name, branch, cgpa, country, career_goal)
-├── skills             (skill_id PK, skill_name UNIQUE)
-├── student_skills     (student_id FK, skill_id FK)  ← Many-to-many
-├── careers            (career_id PK, career_name, description)
-└── career_skills      (career_id FK, skill_id FK)   ← Many-to-many
+├── users          (user_id PK, username, email, password_hash, created_at)
+├── students       (student_id PK, name, branch, cgpa, country, career_goal)
+├── skills         (skill_id PK, skill_name UNIQUE)
+├── student_skills (student_id FK, skill_id FK)   ← Many-to-Many
+├── careers        (career_id PK, career_name UNIQUE, description)
+└── career_skills  (career_id FK, skill_id FK)    ← Many-to-Many
 ```
+
+**Key design decisions:**
+- `users` (login credentials) is **separate** from `students` (academic profile)
+- `ON DELETE CASCADE` — deleting a student removes all skill links automatically
+- **Connection pooling** (`pool_size=5`) — reuses TCP connections instead of creating new ones per query
+- **`@st.cache_data`** on all heavy reads — 30s–5min cache eliminates repeated DB round-trips
+- Seed data runs **only once** — skipped automatically if data already exists
 
 ---
 
-## ⚡ Setup Instructions
+## ⚡ Quick Start
 
 ### Prerequisites
-- Python 3.11+
-- MySQL 8.0+ installed and running
-- Git
+- Python **3.11+**
+- MySQL **8.0+** running locally
+- A free [Google Gemini API key](https://ai.google.dev/)
 
-### Step 1: Clone the Repository
+### 1. Clone the repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/careerforge_ai.git
-cd careerforge_ai
+git clone https://github.com/YOUR_USERNAME/careerforge-ai.git
+cd careerforge-ai
 ```
 
-### Step 2: Create Virtual Environment
+### 2. Create & activate a virtual environment
 ```bash
 python -m venv venv
-# Windows:
+
+# Windows
 venv\Scripts\activate
-# Mac/Linux:
+
+# Mac / Linux
 source venv/bin/activate
 ```
 
-### Step 3: Install Dependencies
+### 3. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### Step 4: Configure Environment Variables
-Edit `.env` with your MySQL credentials:
+### 4. Configure environment variables
+Create a `.env` file in the root folder:
 ```env
 DB_HOST=localhost
 DB_PORT=3306
 DB_USER=root
-DB_PASSWORD=your_password_here
+DB_PASSWORD=your_mysql_password
 DB_NAME=careerforge_ai
-GEMINI_API_KEY=your_gemini_key_here
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
-### Step 5: Initialize the Database
+> 💡 **Free Gemini key:** [ai.google.dev](https://ai.google.dev/) → "Get API key in Google AI Studio" — no credit card needed.
+
+### 5. Initialize the database
 ```bash
 python database.py
 ```
-This creates all tables and seeds career + skill data automatically.
+Automatically creates the database, all 6 tables, and seeds **150+ skills** + **35+ career paths**.
 
-### Step 6: Run the App
+### 6. Run the app
 ```bash
 streamlit run app.py
 ```
-Open your browser at: `http://localhost:8501`
+Open **`http://localhost:8501`** in your browser 🎉
 
 ---
 
-## 📦 Features by Phase
+## 🔑 Environment Variables
 
-### ✅ Phase 1 — Foundation
-- Student registration form (Create, Read, Update, Delete)
-- Skill management (add from catalog or custom)
-- Career browser with descriptions and skill tags
-- Interactive charts (skills heatmap, most in-demand skills)
+| Variable | Description | Example |
+|----------|-------------|---------|
+| `DB_HOST` | MySQL host | `localhost` |
+| `DB_PORT` | MySQL port | `3306` |
+| `DB_USER` | MySQL username | `root` |
+| `DB_PASSWORD` | MySQL password | `mypassword` |
+| `DB_NAME` | Database name | `careerforge_ai` |
+| `GEMINI_API_KEY` | Google Gemini API key | `AIza...` |
 
-### ✅ Phase 2 — Rule-Based Recommendations
-- Jaccard similarity career matching
-- Ranked career recommendations with match scores
-- Skill gap analysis with radar chart visualization
-- Priority missing skills list
-
-### ✅ Phase 3 — Machine Learning
-- TF-IDF + Cosine Similarity recommendations
-- Personalized 3-phase learning roadmap
-- Gantt-style timeline visualization
-- Free resource recommendations per skill
-
-### ✅ Phase 4 — AI Career Mentor
-- Conversational AI using Google Gemini
-- System prompt personalized with student profile
-- Streaming responses
-- Quick question prompts
-- Full conversation history
+> ⚠️ **Never commit your `.env` file.** It is already excluded in `.gitignore`.
 
 ---
 
 ## 📖 How Each File Works
 
-### `database.py`
-The data access layer. Contains every SQL query in the project.
-- `initialize_database()` — Creates DB, tables, seeds data
-- `create_student()` — INSERT a new student
-- `get_all_students()` → Pandas DataFrame
-- `add_student_skill()` — Adds skill to student (handles duplicates)
-- `get_all_career_skill_map()` → `{career: [skills]}` dict
+### `database.py` — Data Layer
+All SQL lives here (Repository Pattern). No raw queries in any other file.
+- `initialize_database()` — creates DB + tables + seeds data (smart skip if exists)
+- `get_all_students()` — DataFrame of all students (cached 30s)
+- `get_student_skills(id)` — student's skill list (cached 30s, cleared on writes)
+- `get_all_career_skill_map()` — `{career: [skills]}` dict (cached 5 min)
 
-### `recommendation.py`
-The intelligence layer. Contains all recommendation algorithms.
-- `jaccard_similarity(A, B)` → float [0-1]
-- `get_career_recommendations(student_id)` → ranked DataFrame
-- `get_skill_gap(student_id, career)` → gap analysis dict
-- `get_ml_recommendations(student_id)` → TF-IDF ranked DataFrame
-- `generate_roadmap(student_id, career)` → phased roadmap list
+### `recommendation.py` — Intelligence Layer
+- `jaccard_similarity(A, B)` → float — fast set overlap metric
+- `get_career_recommendations(id)` → careers ranked by Jaccard score
+- `get_skill_gap(id, career)` → matched, missing, and priority skills
+- `get_ml_recommendations(id)` → careers ranked by TF-IDF cosine similarity
+- `generate_roadmap(id, career)` → 3-phase plan with resources + time estimates
 
-### `app.py`
-The Streamlit entry point and home page.
-- Sets global page config and CSS
-- Initializes DB via `@st.cache_resource`
-- Renders hero, features, and architecture overview
+### `auth.py` — Security Layer
+- `signup()` — bcrypt-hashes the password before storing
+- `login()` — verifies bcrypt hash, saves user to `st.session_state`
+- `require_login()` — redirects unauthenticated users to the login page
+- `logout()` — clears session state
 
-### `pages/1_Register.py`
-Full CRUD for student profiles using Streamlit tabs.
+### `llm_service.py` — AI Layer
+- Initializes Google Gemini client from `.env`
+- Builds a **personalized system prompt** with the student's branch, CGPA, skills, and career goal
+- Handles **streaming responses** for real-time chat feel
 
-### `pages/2_Skills.py`
-Skill management — categorized catalog + custom skill entry.
-
-### `pages/3_Careers.py`
-Career browser with Plotly bar charts.
-
-### `pages/4_SkillGap.py`
-Gap analysis with Plotly radar chart and priority skill list.
-
-### `pages/5_Roadmap.py`
-ML recommendations + phased roadmap + Gantt timeline.
-
-### `pages/6_AIMentor.py`
-Gemini-powered conversational career mentor with streaming.
+### `theme.py` — Design Layer
+- `_GLOBAL_CSS` — 600+ lines of dark-glass premium CSS
+- `inject_global_css()` — injects CSS + renders sidebar on every page
+- `render_sidebar()` — user avatar, navigation, platform stats, logout button
 
 ---
 
-## 🔑 API Keys
+## 📚 Algorithms Explained
 
-### Google Gemini (Free)
-1. Visit [https://ai.google.dev/](https://ai.google.dev/)
-2. Click "Get API key in Google AI Studio"
-3. No credit card required — generous free tier
-4. Add to `.env`: `GEMINI_API_KEY=your_key_here`
-
----
-
-## 📚 Algorithms Used
-
-### Jaccard Similarity (Phase 2)
+### Jaccard Similarity (Phase 2 — Career Matching)
 ```
 Jaccard(A, B) = |A ∩ B| / |A ∪ B|
-```
-Simple set overlap metric. Explainable and fast. No training needed.
 
-### TF-IDF + Cosine Similarity (Phase 3)
+Example:
+  Student skills:         {Python, SQL, Pandas}
+  Data Scientist needs:   {Python, SQL, TensorFlow, Pandas, ML}
+  Intersection (∩):       {Python, SQL, Pandas}  → 3
+  Union (∪):              {Python, SQL, TensorFlow, Pandas, ML} → 5
+  Score:                  3/5 = 60%
+```
+✅ Simple, explainable, no training data needed
+
+### TF-IDF + Cosine Similarity (Phase 3 — ML Recommendations)
 ```
 TF-IDF weight = TF(skill) × log(N / DF(skill))
-Cosine(A, B) = (A · B) / (|A| × |B|)
+Cosine(A, B)  = (A · B) / (‖A‖ × ‖B‖)
 ```
-Weights rare skills higher. Better personalization than Jaccard.
+✅ Weights rare/specific skills higher (e.g. "RTOS" > "Python" for ENTC roles)  
+✅ Better personalization than Jaccard
+
+### Roadmap Generator — Topological Skill Ordering
+```
+Phase 1 (Foundation): Skills with no missing prerequisites
+Phase 2 (Core):       Skills whose prerequisites are in Phase 1
+Phase 3 (Advanced):   All remaining advanced skills
+```
+
+---
+
+## 🌐 Supported Engineering Branches
+
+Branch-specific skill catalogs and career paths for:
+
+| Branch | Sample Careers |
+|--------|----------------|
+| 💻 Computer Science & Engineering | Data Scientist, ML Engineer, DevOps |
+| 🖥️ Information Technology | Backend Developer, Cloud Architect |
+| 📡 Electronics & Telecommunication | VLSI Engineer, IoT Developer, RF Engineer |
+| ⚙️ Mechanical Engineering | CAE Analyst, Mechanical Design, HVAC |
+| 🏗️ Civil Engineering | Structural Engineer, GIS Analyst, Urban Planner |
+| ⚡ Electrical Engineering | Power Systems, Automation, Renewable Energy |
+| ⚗️ Chemical Engineering | Process Engineer, Quality Assurance |
+| 🛩️ Aerospace Engineering | FEA Analyst, CFD Specialist |
+| 🔬 Biomedical / Biotechnology | Bioinformatics, Medical Device Design |
+
+---
+
+## 📸 Pages Overview
+
+| Page | What It Does |
+|------|-------------|
+| 🏠 **Home** | Welcome hero, quick stats, feature navigation tiles |
+| 🔑 **Login / Signup** | Secure auth with bcrypt password hashing |
+| 👤 **Register Profile** | Create, view, edit, delete student profiles |
+| 🧠 **Skills** | Branch-aware catalog + custom skills + recommendations |
+| 💼 **Careers** | Browse 35+ careers, Jaccard match %, skill tags, heatmap |
+| 📊 **Skill Gap** | Radar chart, matched vs missing, priority learn list |
+| 🗺️ **Roadmap** | ML career ranking + phased roadmap + Gantt timeline |
+| 🤖 **AI Mentor** | Chat with Gemini AI using your full student profile |
 
 ---
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create your feature branch: `git checkout -b feature/amazing-feature`
-3. Commit your changes: `git commit -m 'Add amazing feature'`
-4. Push to the branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
+Contributions are welcome!
+
+1. **Fork** this repository
+2. **Create** your feature branch
+   ```bash
+   git checkout -b feature/amazing-feature
+   ```
+3. **Commit** your changes
+   ```bash
+   git commit -m "✨ Add amazing feature"
+   ```
+4. **Push** and open a Pull Request
+   ```bash
+   git push origin feature/amazing-feature
+   ```
+
+### Ideas for future features
+- [ ] Resume / CV PDF generator
+- [ ] LinkedIn skills import integration
+- [ ] More engineering branches (Marine, Mining, etc.)
+- [ ] Job listings API (LinkedIn / Naukri)
+- [ ] Email notifications for roadmap milestones
 
 ---
 
 ## 📄 License
 
-MIT License — free to use for learning and personal projects.
+MIT License — free to use for learning, personal projects, and portfolio showcasing.
 
 ---
 
-*Built with ❤️ for engineering students. CareerForge AI — Flagship AI/Data Science Project*
+<div align="center">
+
+**⭐ If this project helped you, please give it a star on GitHub! ⭐**
+
+*Built with ❤️ for engineering students — CareerForge AI*
+
+[![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io)
+[![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)](https://mysql.com)
+[![Gemini](https://img.shields.io/badge/Gemini%20AI-4285F4?style=flat-square&logo=google&logoColor=white)](https://ai.google.dev)
+
+</div>
