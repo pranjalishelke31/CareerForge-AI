@@ -1,0 +1,61 @@
+# =============================================================================
+# CareerForge AI — Python Dependencies
+# =============================================================================
+# Install all at once with:   pip install -r requirements.txt
+#
+# Each library is explained below so you know exactly why it's needed.
+# NOTE: We use >= version constraints instead of exact pins so pip can find
+# pre-built wheels compatible with your Python version.
+# =============================================================================
+
+# --- Web UI Framework ---
+streamlit>=1.35.0
+# Streamlit turns Python scripts into interactive web apps.
+# No HTML, CSS, or JavaScript needed. Perfect for data science projects.
+
+# --- Database ---
+mysql-connector-python>=8.3.0
+# The official MySQL driver for Python.
+# Lets Python talk to MySQL using SQL queries.
+
+# --- Environment Variables ---
+python-dotenv>=1.0.1
+# Loads .env files into os.environ.
+# We store DB password and API keys in .env — never hardcoded.
+
+# --- Data Science Core ---
+pandas>=2.1.0
+# Most important data manipulation library.
+# We use DataFrames for query results, filtering, and passing data between functions.
+
+numpy>=1.26.0
+# Numerical computing library. Fast array operations.
+# Scikit-learn uses NumPy arrays internally.
+
+# --- Machine Learning ---
+scikit-learn>=1.4.0
+# Industry-standard ML library.
+# TF-IDF vectorizer, cosine similarity, Random Forest, Pipeline.
+
+joblib>=1.3.0
+# Efficient serialization for ML models.
+# Saves trained models to .pkl files.
+
+# --- AI / LLM ---
+google-generativeai>=0.7.0
+# Google's official Python SDK for Gemini models.
+# Used in Phase 4 for the AI Career Mentor chat interface.
+
+# --- Visualization ---
+plotly>=5.20.0
+# Interactive charting library.
+# Radar charts, bar charts, Gantt timelines.
+
+# --- Authentication ---
+bcrypt>=4.1.0
+# Industry-standard password hashing library.
+# Uses Adaptive Hashing — automatically slow enough to resist brute-force attacks.
+
+# --- Utilities ---
+python-dateutil>=2.9.0
+# Reliable date/time utilities used internally by pandas.

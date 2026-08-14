@@ -1,0 +1,40 @@
+# =============================================================================
+# .gitignore — Files Git Should NEVER Track
+# =============================================================================
+# Git tracks changes to files so you can share code on GitHub.
+# But some files must stay private or are auto-generated.
+# List them here and Git will completely ignore them.
+# =============================================================================
+
+# --- Secret Files ---
+.env
+# Contains your DB password and API keys. NEVER commit this.
+
+# --- Python Cache ---
+__pycache__/
+*.py[cod]
+# Python creates these compiled bytecode files automatically.
+# They're machine-specific and don't belong in version control.
+
+# --- Virtual Environment ---
+venv/
+env/
+.venv/
+# If you create a virtual environment, its folder goes here.
+# Other developers install their own dependencies.
+
+# --- Jupyter Notebooks (if any) ---
+.ipynb_checkpoints/
+
+# --- OS Generated Files ---
+.DS_Store      # macOS
+Thumbs.db      # Windows
+
+# --- Trained ML Models (optional — can be large) ---
+# models/*.pkl
+# Uncomment the line above if model files become too large for GitHub (>100MB).
+# For now we commit them since they're small.
+
+# --- IDE Config ---
+.vscode/
+.idea/
